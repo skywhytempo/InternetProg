@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Вариант 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Лаба №1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bootstrap.html">Bootstrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="flexbox.html">Flexbox</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+
+        <div class="flexbox-layout">
+            <div class="flexbox-col">
+                <h3>Колонка 1 (8 подколонок)</h3>
+                <div class="flex-sub-col">1</div>
+                <div class="flex-sub-col">2</div>
+                <div class="flex-sub-col">3</div>
+                <div class="flex-sub-col">4</div>
+                <div class="flex-sub-col">5</div>
+                <div class="flex-sub-col">6</div>
+                <div class="flex-sub-col">7</div>
+                <div class="flex-sub-col">8</div>
+            </div>
+
+            <div class="flexbox-col">
+                <h3>Колонка 2 (2 подколонки)</h3>
+
+                <img src = "https://i.pinimg.com/736x/7c/db/43/7cdb43b20478750b2e49db4728290025.jpg">
+                <img src = "https://i.pinimg.com/736x/0a/c8/30/0ac83007d374b87e6dd80e4038f2a544.jpg">
+                
+            </div>
+
+            <div class="flexbox-col">
+                <h3>Колонка 3 (2 подколонки)</h3>
+                <img src = "https://i.pinimg.com/736x/76/50/e4/7650e4b1bfac872c5f5779e6e6215348.jpg">
+                <img src = "https://i.pinimg.com/736x/bf/bb/3e/bfbb3e2f3f1f5899dac0e5e81e6d8f90.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

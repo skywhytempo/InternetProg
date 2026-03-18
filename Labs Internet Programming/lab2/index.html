@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Лаба 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Лаба №2</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="http://rkn.gov.ru/?ysclid=mmc6yadvq6739495848">РКН</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <h1 class="text-center mb-4">Это моя лаба <br>
+            Дальше здесь что-то будет
+        </h1>
+        <div class="index-layout">
+            <div class="index-col index-left">
+                <h3>Tokyo vibe</h3>
+                <img src="img/1.jpg" alt="Фото 1">
+                <img src="img/2.jpg" alt="Фото 2">
+                <img src="img/3.jpg" alt="Фото 3">
+                <img src="img/4.jpg" alt="Фото 4">
+            </div>
+
+            <div class="index-col form-col">
+                <h3>Здесь будет крутая форма соц опроса</h3>
+                <form id="myForm" action="" onsubmit="return validateFormPlain()">
+
+                    <div class="form-group">
+                        <label class="field-label" for="textField">
+                            Как вас называть <em>(без % $ # @ ^)</em>
+                        </label>
+                        <input type="text" id="textField" name="textField" placeholder="Введите текст...">
+                        <span id="textError" class="field-error"></span>
+                    </div>
+
+                    <!-- Чекбоксы -->
+                    <div class="form-group">
+                        <span class="field-label">Чем заниматься по жизни <em>(обязательны 1-я и 3-я и 4-я)</em></span>
+                        <div class="check-list">
+                            <label><input type="checkbox" id="cb1" name="cb1" value="1"><span>Лениться</span></label>
+                            <label><input type="checkbox" id="cb2" name="cb2" value="2"><span>Учиться</span></label>
+                            <label><input type="checkbox" id="cb3" name="cb3" value="3"><span>Писать ненужные скрипты</span></label>
+                            <label><input type="checkbox" id="cb4" name="cb4" value="4"><span>Одобрено ФСБ</span></label>
+                        </div>
+                        <span id="cbError" class="field-error"></span>
+                    </div>
+
+                    <!-- Радио -->
+                    <div class="form-group">
+                        <span class="field-label">Где хотите этим заниматься  <em>(выберете хотя бы одно)</em></span>
+                        <div class="radio-list">
+                            <label><input type="radio" name="rb" value="1"><span>В общежитии</span></label>
+                            <label><input type="radio" name="rb" value="2"><span>В университете</span></label>
+                            <label><input type="radio" name="rb" value="3"><span>На работе</span></label>
+                        </div>
+                        <span id="rbError" class="field-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Отправить</button>
+                </form>
+            </div>
+
+            <div class="index-col index-right">
+                <h3>ОнИмЭ</h3>
+                <img src="img/9.jpg" alt="Фото 9">
+                <img src="img/10.jpg" alt="Фото 10">
+                <img src="img/11.jpg" alt="Фото 11">
+                <img src="img/12.jpg" alt="Фото 12">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js"></script>
+
+    <script src="scripts/script.js"></script>
+
+</body>
+</html>
