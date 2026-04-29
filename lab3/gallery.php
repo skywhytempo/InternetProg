@@ -19,7 +19,7 @@ if (!is_dir($thumbsDir)) {
 $forbidden = ['script','http','SELECT','UNION','UPDATE','exe','exec','INSERT','tmp'];
 
 // ---------------- УДАЛЕНИЕ КАРТИНОК ----------------
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
+if (isset($_POST["delete"])) {
 
     $delName = basename($_POST["delete"]); // защита от ../
 
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
 }
 
 // ---------------- ЗАГРУЗКА НОВЫХ КАРТИНОК ----------------
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
+if (isset($_FILES["image"])) {
 
     $title = strip_tags(trim($_POST["title"]));
 
@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
             $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
 
             // ВАЖНО: здесь &&, а не ||
-            if ($ext != "jpg" && $ext != "jpeg" && $ext != "png") {
-                $error = "ФСБ не одобрило ваше изображение. Разрешены только jpg, png";
+            if ($ext != "jpg" && $ext != "jpeg" && $ext != "png" && $ext != "jfif" && $ext != "gif" && $ext != "webp") {
+                $error = "ФСБ не одобрило ваше изображение. Разрешены только jpg, png, jfif, webp и gif";
             } else {
 
                 $info = getimagesize($tmpName);
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                     } else {
 
                         $safeName = preg_replace('/[^a-zA-Z0-9_\-а-яА-ЯёЁ]/u', '_', $title);
-                        $fileName = $safeName.".".$ext;
+                        $fileName = $_COOKIE["user"]."_".$safeName.".".$ext;
                         $fullPath = $imagesDir.$fileName;
 
                         // если файл с таким именем уже существует — добавляем timestamp
@@ -102,11 +102,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                         // создаём миниатюру, только если нет ошибок
                         if ($error == "") {
 
-                            if ($ext == "jpg" || $ext == "jpeg") {
+                            if ($ext == "jpg" || $ext == "jpeg" || $ext == "jfif") {
                                 $src = imagecreatefromjpeg($fullPath);
-                            } else { // png
+                            } else if ($ext == "png"){ // png
                                 $src = imagecreatefrompng($fullPath);
+                                                       
+                            } else if ($ext == "webp"){
+                                $src = imagecreatefromwebp($fullPath);
+                            } // webp
+                            else if ($ext == "gif"){
+                                $src = imagecreatefromgif($fullPath);
                             }
+                                // gif
 
                             $width  = imagesx($src);
                             $height = imagesy($src);
@@ -119,10 +126,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                             imagecopyresampled($thumb, $src, 0, 0, 0, 0,
                                 $thumbW, $thumbH, $width, $height); 
 
-                            if ($ext == "jpg" || $ext == "jpeg") {
+                            if ($ext == "jpg" || $ext == "jpeg" || $ext == "jfif") {
                                 imagejpeg($thumb, $thumbPath);
-                            } else {
+                            } else if ($ext == "png"){
                                 imagepng($thumb, $thumbPath);
+                            } else if ($ext == "webp"){
+                                imagewebp($thumb, $thumbPath);
+                            } else if ($ext == "gif"){
+                                imagegif($thumb, $thumbPath);
                             }
 
                             $success = "Ваше изображение было одобрено ФСБ";
@@ -154,6 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
 <div class="gallery-page">
 
     <div class="upload-card">
+    <h2 class = "hello">Добро пожаловать, <?= htmlspecialchars($_COOKIE["user"]) ?>!</h2>
         <h3>Загрузить изображение</h3>
 
         <?php if (!empty($error)): ?>
@@ -184,15 +196,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
 
     <div class="gallery-grid">
     <?php
-    $files = glob($imagesDir."*.{jpg,jpeg,png}", GLOB_BRACE);
+    $currentUser = $_COOKIE["user"];
+    $files = glob($imagesDir."*.{jpg,jpeg,png,jfif,webp,gif}", GLOB_BRACE);
     foreach ($files as $file) {
         $name  = basename($file);
+        if (strpos($name, $currentUser."_") !== 0) {
+            continue;
+        }
     ?>
         <div class="gallery-item">
             <a href="img/<?= htmlspecialchars($name) ?>" target="_blank">
                 <img src="img/thumbs<?= '/' . htmlspecialchars($name) ?>" alt="">
             </a>
-            <p><?= htmlspecialchars($name) ?></p>
+            <p><?= htmlspecialchars(explode('_', $name, 2)[1] ?? $name) ?></p>
             <form method="POST" action="gallery.php">
                 <input type="hidden" name="delete" value="<?= htmlspecialchars($name) ?>">
                 <button type="submit">Удалить</button>

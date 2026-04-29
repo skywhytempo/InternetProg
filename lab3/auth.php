@@ -9,13 +9,14 @@ $users = explode("\n", trim($file));
 $userFound = false;
 
 if ($login !== '' && $pass !== ''){
+    
     foreach($users as $user){
 
         if ($user === '') continue;
 
         list($user_login, $user_pass) = explode(":", $user, 2);
         
-        if ($user_login === $login && $user_pass === $pass){
+        if ($user_login === $login && password_verify($pass, $user_pass)){
             $userFound = true;
             break;
         }

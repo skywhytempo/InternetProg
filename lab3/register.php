@@ -14,7 +14,7 @@ if ($login !== '' && $pass !== ''){
         if ($user === '') continue;
 
         $user_login = explode(":", $user)[0];
-        
+
         if ($user_login === $login){
             $userExists = true;
             break;
@@ -26,7 +26,8 @@ if ($login !== '' && $pass !== ''){
         $error = "ФСБ не одобряет ваше имя";
     }
     else{
-        $new_user = $login.":".$pass."\n";
+        $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+        $new_user = $login.":".$hashedPass."\n";
 
         file_put_contents("users.txt", $new_user, FILE_APPEND | LOCK_EX);
 
@@ -35,7 +36,7 @@ if ($login !== '' && $pass !== ''){
 
     }
 }
-    
+
 
 ?>
 
