@@ -43,14 +43,23 @@ if ($login !== '' && $pass !== ''){
 <head>
     <meta charset="UTF-8">
     <title>Авторизация</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
 <nav class="navbar">
-    <span class="nav-brand">Лаба №3</span>
-    <a href="auth.php">Войти</a>
-    <a href="register.php">Регистрация</a>
+    <span class="nav-brand">Лаба №4</span>
+    <a href="../index.php">Главная</a>
+    <a href="../account/register.php">Регистрация</a>
+    <a href="../account/auth.php">Вход</a>
+    <a href="../account/gallery.php">Галерея</a>
+    <a href="../account/profile.php">Профиль</a>
+    <a href="../fun/jokes.php">Анекдоты</a>
+    <a href="../fun/quotes.php">Цитаты</a>
+    <a href="../fun/facts.php">Факты</a>
+    <a href="../info/about.php">О сайте</a>
+    <a href="../info/contacts.php">Контакты</a>
+    <a href="../info/faq.php">FAQ</a>
 </nav>
 
 <main>
