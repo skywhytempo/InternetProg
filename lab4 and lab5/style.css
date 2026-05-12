@@ -301,3 +301,17 @@ button[type="submit"]:hover {
     color: #555;
     font-size: 14px;
 }
+
+.form-group select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #555;
+}

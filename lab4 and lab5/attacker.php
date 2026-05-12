@@ -16,8 +16,6 @@ declare(strict_types=1);
  *   php attacker.php all
  *   php attacker.php restore
  *
- * Если проект лежит не в текущей папке, передай путь вторым аргументом:
- *   php attacker.php all ../project_infected
  */
 
 $mode = $argv[1] ?? 'status';

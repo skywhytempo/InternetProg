@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX - Страны и города</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand">ЛР5</div>
+    <a href="index.php">Главная</a>
+</nav>
+
+<main>
+    <div class="form-card" style="max-width: 700px;">
+        <h2>Подгрузка городов через AJAX</h2>
+
+        <p class="info-text">
+            Выберите страну, после чего список городов будет загружен из JSON без перезагрузки страницы.
+        </p>
+
+        <div class="form-group">
+            <label for="country">Выберите страну</label>
+            <select id="country">
+                <option value="">-- Выберите страну --</option>
+                <option value="Россия">Россия</option>
+                <option value="Беларусь">Беларусь</option>
+                <option value="Казахстан">Казахстан</option>
+                <option value="Германия">Германия</option>
+            </select>
+        </div>
+
+        <div class="result-box">
+            <strong>Список городов:</strong>
+            <ul id="cityList" class="text-list"></ul>
+            <p id="message" class="center-note">Сначала выберите страну.</p>
+        </div>
+    </div>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
