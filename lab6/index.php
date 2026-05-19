@@ -20,9 +20,7 @@ try {
 
 }
 
-/**
- * Роутинг
- */
+// Переключение между функциями
 function route($method, $uri){
     if ($method === 'GET' && $uri === '/getMailList') {
         getMailList();
@@ -47,8 +45,6 @@ function route($method, $uri){
         addMails();
         return;
     }
-
-
 
     sendError("Route not found", 404);
 }
@@ -139,9 +135,6 @@ function addMails(){
     ]);
 
 }
-
-
-
 //Работа с БД
 
 function getAllData(){
@@ -250,8 +243,6 @@ function getJsonInput(){
 
     return $data;
 }
-
-
 
 function makeFilter(array $filter){
     $data = getAllData();
