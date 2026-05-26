@@ -8,10 +8,7 @@ from dotenv import load_dotenv
 import xml.etree.ElementTree as ET
 from yandex_ai_studio_sdk import AIStudio
 import pandas as pd
-import requests
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
+import pprint
 
 # Тестовый парсинг ссылок
 load_dotenv()
@@ -21,30 +18,6 @@ sdk = AIStudio(
     folder_id=os.getenv("YANDEX_FOLDER_ID"),
     auth=os.getenv("YANDEX_API_KEY"),
 )
-
-#Наследие
-def parse_urls_google(query: str, starts:list[int] = [0, 10, 20]):
-    #Парсинг при помощи Selenium
-    
-    encoded_query = quote_plus(query)
-
-    urls = []
-
-    for start in starts:
-        
-        driver = uc.Chrome()
-        driver.implicitly_wait(5)
-        
-        driver.get(f"https://www.google.com/search?q={encoded_query}&start={start}")
-        
-        time.sleep(random.uniform(3, 7))    
-        # Извлечение ссылок — CSS-селектор для результатов Google
-        results = driver.find_elements(By.CSS_SELECTOR, "div[jscontroller][data-hveid] a:has(> h3)")
-        page_urls = [r.get_attribute("href") for r in results if r.get_attribute("href")]
-        urls.extend(page_urls)        
-        driver = None
-        
-    return urls
 
 def extract_total_from_xml(xml_data) -> str:
     if isinstance(xml_data, bytes):
@@ -128,40 +101,15 @@ def parse_url_yandex(query: str, pages: int = 3):
         
     return int(total), df
 
-def parse_url_brave(query: str, pages: int = 3):
-    
-    url = "https://api.search.brave.com/res/v1/web/search"
-    
-    db_parts = query.split()[2:]
-    db = db_parts[0] if len(db_parts) == 1 else " ".join(db_parts)
 
-    
-    
-    headers = {
-    "Accept": "application/json",
-    "Accept-Encoding": "gzip",
-    "X-Subscription-Token": os.getenv("BRAVE_API_KEY")
-    }
-    
-    rows = []
-    for page in range(pages):
-        params = {
-            "q": query,
-            "count": 20,
-            "offset": page
-        }
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        print(f"Brave API - Page {page+1} - Status: {response.status_code}")
-        data = response.json()
-        
-        results = data.get("web", {}).get("results", {})
-        
-        for item in results:
-            rows.append({
-                "db": db,
-                "query": query,
-                "url": item.get("url", ""),
-                "snippet": item.get("description", "")
-            })
-    return pd.DataFrame(rows, columns=["db", "query", "url", "snippet"])
+query = "Большие данные MySQL"
+
+total, df = parse_url_yandex(query)
+
+print(f"{query} - {total} results")
+
+print()
+print("Parsed Results:")
+pprint.pprint(df)
+
+df.to_csv("snippets_yandex_url.csv", index=False)

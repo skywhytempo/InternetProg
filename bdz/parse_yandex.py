@@ -36,6 +36,7 @@ def parse_url_yandex(query: str):
     pages = 3
     
     search = sdk.search_api.web(search_type="RU")
+    
 
     for page in range(pages):
         

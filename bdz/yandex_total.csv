@@ -1,0 +1,27 @@
+,db,total
+0,Oracle,2953808
+1,MySQL,2819291
+2,MSSQL,2749342
+3,Postgress,3205013
+4,Berkeley DB,2700607
+5,MemcacheDB,2870277
+6,Redis,2676221
+7,Riak,2671069
+8,Amazon DynamoDB,2584607
+9,Apache HBase,2669054
+10,Apache Cassandra,2671843
+11,ScyllaDB,2968727
+12,Apache Accumulo,2735761
+13,Hypertable,2885418
+14,CouchDB,2800943
+15,Couchbase,2732747
+16,MongoDB,2907916
+17,eXist,2850239
+18,Berkeley DB XML,2701844
+19,Neo4j,6382436
+20,OrientDB,2560401
+21,AllegroGraph,2724076
+22,Blazegraph,2460831
+23,InfiniteGraph,2881860
+24,нереляционные,2883531
+25,"""не реляционные""",829

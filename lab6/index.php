@@ -1,6 +1,5 @@
 
 <?php
-
 header("Content-Type: application/json; charset=utf-8");
 
 define("DB_FILE", __DIR__ . "/maillist.json");
@@ -197,8 +196,6 @@ function addNewMailToDB($mail){
 
     return $increment;
 }
-
-
 
 function deleteMailFromDB($mailId){
     $data = getAllData();
