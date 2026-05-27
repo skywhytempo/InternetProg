@@ -1,0 +1,136 @@
+{
+    "header": {
+        "date_create": "07.05.2020",
+        "date_update": "13.05.2026",
+        "author": "aam",
+        "increment": 26
+    },
+    "body": {
+        "mail_2": {
+            "datetime": "07.05.2020 10:15:15",
+            "subject": "Второе",
+            "from": "andymailru@mail.ru",
+            "message": "Вторая проверка"
+        },
+        "mail_3": {
+            "datetime": "07.05.2020 10:20:15",
+            "subject": "Третье",
+            "from": "andymailru@mail.ru",
+            "message": "Третья проверка"
+        },
+        "mail_4": {
+            "datetime": "13.05.2026 10:19:57",
+            "subject": "ЛР6 тест",
+            "from": "i.gorelow@bk.ru",
+            "message": "тест"
+        },
+        "mail_6": {
+            "datetime": "13.05.2026 12:00:00",
+            "subject": "ЛР6 еще тест",
+            "from": "i.gorelow@bk.ru",
+            "message": "Тест"
+        },
+        "mail_7": {
+            "datetime": "13.05.2026 12:00:00",
+            "subject": "ЛР6 еще тест",
+            "from": "i.gorelow@bk.ru",
+            "message": "Тест"
+        },
+        "mail_8": {
+            "datetime": "13.05.2026 12:00:00",
+            "subject": "ЛР6 еще тест",
+            "from": "i.gorelow@bk.ru",
+            "message": "Тест"
+        },
+        "mail_9": {
+            "datetime": "13.05.2026 12:00:00",
+            "subject": "ЛР6 еще тест",
+            "from": "i.gorelow@bk.ru",
+            "message": "Тест"
+        },
+        "mail_10": {
+            "datetime": "14.05.2026 10:00",
+            "subject": "Массовое POST 1",
+            "from": "user1@mail.ru",
+            "message": "Текст POST 1"
+        },
+        "mail_11": {
+            "datetime": "14.05.2026 11:00",
+            "subject": "Массовое POST 2",
+            "from": "user2@mail.ru",
+            "message": "Текст POST 2"
+        },
+        "mail_12": {
+            "datetime": "15.05.2026 12:00",
+            "subject": "Массовое PUT 1",
+            "from": "put1@mail.ru",
+            "message": "Текст PUT 1"
+        },
+        "mail_13": {
+            "datetime": "15.05.2026 13:00",
+            "subject": "Массовое PUT 2",
+            "from": "put2@mail.ru",
+            "message": "Текст PUT 2"
+        },
+        "mail_15": {
+            "datetime": "14.05.2026 10:00",
+            "subject": "Массовое POST 1",
+            "from": "user1@mail.ru",
+            "message": "Текст POST 1"
+        },
+        "mail_16": {
+            "datetime": "14.05.2026 11:00",
+            "subject": "Массовое POST 2",
+            "from": "user2@mail.ru",
+            "message": "Текст POST 2"
+        },
+        "mail_18": {
+            "datetime": "14.05.2026 10:00",
+            "subject": "Массовое POST 1",
+            "from": "user1@mail.ru",
+            "message": "Текст POST 1"
+        },
+        "mail_19": {
+            "datetime": "14.05.2026 11:00",
+            "subject": "Массовое POST 2",
+            "from": "user2@mail.ru",
+            "message": "Текст POST 2"
+        },
+        "mail_20": {
+            "datetime": "15.05.2026 12:00",
+            "subject": "Массовое PUT 1",
+            "from": "put1@mail.ru",
+            "message": "Текст PUT 1"
+        },
+        "mail_21": {
+            "datetime": "15.05.2026 13:00",
+            "subject": "Массовое PUT 2",
+            "from": "put2@mail.ru",
+            "message": "Текст PUT 2"
+        },
+        "mail_23": {
+            "datetime": "14.05.2026 10:00",
+            "subject": "Массовое POST 1",
+            "from": "user1@mail.ru",
+            "message": "Текст POST 1"
+        },
+        "mail_24": {
+            "datetime": "14.05.2026 11:00",
+            "subject": "Массовое POST 2",
+            "from": "user2@mail.ru",
+            "message": "Текст POST 2"
+        },
+        "mail_25": {
+            "datetime": "15.05.2026 12:00",
+            "subject": "Массовое PUT 1",
+            "from": "put1@mail.ru",
+            "message": "Текст PUT 1"
+        },
+        "mail_26": {
+            "datetime": "15.05.2026 13:00",
+            "subject": "Массовое PUT 2",
+            "from": "put2@mail.ru",
+            "message": "Текст PUT 2"
+        }
+    }
+}

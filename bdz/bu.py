@@ -1,8 +1,6 @@
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-import time
 from urllib.parse import quote_plus
-import random
 import os
 from dotenv import load_dotenv
 import xml.etree.ElementTree as ET
@@ -102,7 +100,7 @@ def parse_url_yandex(query: str, pages: int = 3):
     return int(total), df
 
 
-query = "Большие данные MySQL"
+query = "PostgreSQL"
 
 total, df = parse_url_yandex(query)
 
@@ -112,4 +110,4 @@ print()
 print("Parsed Results:")
 pprint.pprint(df)
 
-df.to_csv("snippets_yandex_url.csv", index=False)
+#df.to_csv("snippets_yandex_url.csv", index=False)

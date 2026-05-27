@@ -1,0 +1,21 @@
+PUT
+
+curl.exe -X PUT "http://localhost:8000/setDB" -H "Content-Type: application/json" -d "{\"name\":\"MySQL\"}"
+
+или через терминал VS Code
+
+$BASE = "http://localhost:8000"
+$json = '{"name":"PostgreSQL"}'
+curl.exe -X PUT "$BASE/setDB" -H "Content-Type: application/json" -d $json
+
+GET viewDB
+
+curl.exe "http://localhost:8000/viewDB"
+
+GET getDBStatistic
+
+curl.exe "http://localhost:8000/getDBStatistic"
+
+DELETE delDB
+
+curl.exe -X DELETE "http://localhost:8000/delDB/db_2"
