@@ -2,7 +2,7 @@ import torch
 import pandas as pd
 from sentence_transformers import CrossEncoder
 
-df = pd.read_csv("bdz/brave_url.csv")
+df = pd.read_csv("data/brave_url.csv")
 
 print("COLUMNS:", df.columns.tolist())
 print("ROWS:", len(df))

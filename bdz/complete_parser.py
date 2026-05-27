@@ -5,7 +5,7 @@ import time
 import csv
 
 
-with open("bdz/queries.txt", "r", encoding="utf-8") as file:
+with open("data/queries.txt", "r", encoding="utf-8") as file:
     queries = file.read().strip().split("\n")
 
 
@@ -32,16 +32,16 @@ def parse_yandex():
 
     df_url.drop_duplicates(subset=["url"], keep='first', inplace=True)
     df_total = pd.DataFrame(total_data.items(), columns=['db', 'total'])
-    df_total.to_csv("bdz/yandex_total.csv")
-    df_url.to_csv("bdz/yandex_url.csv")
-    
-    
+    df_total.to_csv("data/yandex_total.csv", index=False)
+    df_url.to_csv("data/yandex_url.csv", index=False)
+
+
 def parse_brave():
     df_url = pd.DataFrame(columns=["db", "query", "url", "snippet"])
 
     for query in queries:
         
-        df = parse_url_brave(query)
+        total, df = parse_url_brave(query)
         df_url = pd.concat([df_url, df], ignore_index=True)
 
         print(f"{query} - parsed")
@@ -51,7 +51,7 @@ def parse_brave():
         db = db[0] if len(db) == 1 else ' '.join(db)
 
     df_url.drop_duplicates(subset=["url"], keep='first', inplace=True)
-    df_url.to_csv("bdz/brave_url.csv", index=False)
+    df_url.to_csv("data/brave_url.csv", index=False)
 
 
 if __name__ == "__main__":

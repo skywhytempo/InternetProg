@@ -71,7 +71,6 @@ def _extract_snippet_from_doc(doc_el: ET.Element) -> str:
 
     return " ... ".join(snippets)
 
-
 def _extract_rows_from_xml(xml_text: str) -> list[dict[str, str]]:
     """
     Извлекает из XML-ответа список словарей:
@@ -164,4 +163,4 @@ def parse_url_brave(query: str, pages: int = 3):
                 "url": item.get("url", ""),
                 "snippet": item.get("description", "")
             })
-    return pd.DataFrame(rows, columns=["db", "query", "url", "snippet"])
+    return len(rows), pd.DataFrame(rows, columns=["db", "query", "url", "snippet"])
