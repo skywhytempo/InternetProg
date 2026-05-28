@@ -2,3 +2,26 @@ db,total
 Oracle,173794000
 MySQL,54149800
 MSSQL,8150000
+PostgreSQL,19242900
+Berkeley DB,10599940
+MemcacheDB,690391
+Redis,26982000
+Riak,370622
+Amazon DynamoDB,4835000
+Apache HBase,2061600
+Apache Cassandra,8508000
+ScyllaDB,518826
+Apache Accumulo,42611
+Hypertable,35391
+CouchDB,566843
+Couchbase,1189060
+MongoDB,26181900
+eXist,3500000
+Berkeley DB XML,325000
+Neo4j,6435000
+OrientDB,85120
+AllegroGraph,24000
+Blazegraph,13000
+InfiniteGraph,22000
+нереляционные,25000000
+"""не реляционные""",1200000

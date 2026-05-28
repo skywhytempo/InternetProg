@@ -24,6 +24,7 @@ sdk = AIStudio(
 
 #Наследие
 def parse_urls_google(query: str, starts:list[int] = [0, 10, 20]):
+    
     #Парсинг при помощи Selenium
     
     encoded_query = quote_plus(query)
@@ -43,7 +44,7 @@ def parse_urls_google(query: str, starts:list[int] = [0, 10, 20]):
         page_urls = [r.get_attribute("href") for r in results if r.get_attribute("href")]
         urls.extend(page_urls)        
         driver = None
-        
+    
     return urls
 
 def extract_total_from_xml(xml_data) -> str:
@@ -99,6 +100,7 @@ def _extract_rows_from_xml(xml_text: str) -> list[dict[str, str]]:
 
 
 def parse_url_yandex(query: str, pages: int = 3):
+    
     sdk.setup_default_logging()
     
     db_parts = query.split()[2:]
